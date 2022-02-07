@@ -1,0 +1,480 @@
+---
+title: "FRM_Midterm_Project_1"
+output: html_document
+---
+
+
+```{r}
+#library("forecast")
+#library("tseries")
+library("gridExtra")
+library("ggplot2")
+library("FKF")
+#library("zoo")
+library(readxl)
+library(data.table)
+library(R.matlab)
+library(MTS)
+library(car)
+
+```
+
+
+```{r}
+rm(list = ls())
+```
+
+
+
+DATA
+```{r}
+
+GEdata <- read.csv("GEData.txt",sep= ",", header = TRUE)
+UKdata <- read.csv("UKData.txt", sep = ",", header=TRUE)
+USdata <- read.csv("USData.txt", sep = ",", header= TRUE)
+
+```
+
+
+```{r}
+
+#Germany: BMW.DE , DBK.DE
+#United kingdom: RSA.L , LRE.L
+#USA : COST, FDX, IBM, XOM, DIS, APPL
+
+
+eq_weights = seq(10**6, 10**6, length=10)
+
+
+GE_list <- c("BMW.DE", "DBK.DE")
+UK_list <- c("RSA.L", "LRE.L")
+US_list <- c("COST","FDX","IBM","XOM","DIS","AAPL")
+FX_names <- c("EURUSD.X", "GBPUSD.X")
+Indices <- c("X.GDAXI", "X.FTSE", "X.DJI")
+
+GE_data <- subset.data.frame(GEdata, select = GE_list)
+UK_data <- subset.data.frame(UKdata, select = UK_list)
+US_data <- subset.data.frame(USdata, select = US_list)
+
+FX_data_1 <- subset.data.frame(GEdata, select = FX_names[1])
+FX_data_2 <- subset.data.frame(UKdata, select = FX_names[2])
+
+Index_GE <- subset.data.frame(GEdata, select = Indices[1])
+Index_UK <- subset.data.frame(UKdata, select = Indices[2])
+Index_US <- subset.data.frame(USdata, select = Indices[3])
+Index_rates <- cbind(Index_US, Index_GE, Index_UK)
+
+
+
+```
+
+
+
+Dates
+```{r}
+dates <- fread("USdata.txt", select = c("Year","Month","Day"))
+GEdata$date <- as.Date(with(dates, paste(Year, Month, Day,sep="-")), "%Y-%m-%d")
+UKdata$date <- as.Date(with(dates, paste(Year, Month, Day,sep="-")), "%Y-%m-%d")
+USdata$date <- as.Date(with(dates, paste(Year, Month, Day,sep="-")), "%Y-%m-%d")
+
+date <- USdata$date
+```
+
+Merging data
+```{r}
+Stocks <- cbind(date,US_data,GE_data,UK_data)
+FX_rates <- cbind(date,FX_data_1,FX_data_2)
+Index_rates <- cbind(date,Index_GE, Index_UK)
+stock_names <- colnames(Stocks)
+```
+
+
+
+Converting GE and UK to USD
+
+```{r}
+
+Stocks_converted <- Stocks
+Stocks_converted[,8:9] <- Stocks[,8:9]*FX_rates$EURUSD.X
+Stocks_converted[,10:11] <- Stocks[,10:11]*FX_rates$GBPUSD.X
+
+```
+
+```{r}
+Stocks_converted
+```
+
+
+
+
+```{r}
+
+plot(Stocks_converted$date, Stocks_converted$COST/Stocks_converted$COST[1], 
+     col = 1, 
+     lty = 1, 
+     type = "l", 
+     ylim=c(0,21), 
+     xlab = "Date", 
+     ylab="Price",
+     main="Standardized stock prices in USD")
+
+for (i in 3:11){
+  lines(Stocks_converted$date, Stocks_converted[,i]/Stocks_converted[,i][1], col = i-1, lty = 1, type = "l")
+}
+
+legend("topleft", legend = c(stock_names[2:11]), col = c(1,2,3,4,5,6,7,8,9,10), lty = c(1,1,1,1,1,1,1,1,1,1), cex = 0.5)
+
+
+
+```
+
+
+
+
+
+X.GDAXI = Germany index
+X.FTSE = UK index
+X.DJI = US index
+
+
+Comparing the performance of stocks compared to the corresponding index in USD
+```{r}
+
+plot(Stocks_converted$date, (Stocks_converted$BMW.DE/Stocks_converted$BMW.DE[1]), col = 1, lty = 1, type="l", ylim=c(0,5), 
+     main = "Germany",
+     xlab = "Dates",
+     ylab = "Stock performance")
+lines(Stocks_converted$date, (Stocks_converted$DBK.DE/Stocks_converted$DBK.DE[1]), col = 2, lty = 1, type="l")
+lines(Stocks_converted$date, (Index_rates$X.GDAXI*FX_rates$EURUSD.X/(Index_rates$X.GDAXI[1]*FX_rates$EURUSD.X[1])), col = 3, lty = 1, type = "l")
+legend("topleft", legend = c("BMW", "DBK", "GDAXI"), col = c(1,2,3), lty =c(1,1,1),cex=0.8)
+
+
+```
+
+UK
+```{r}
+plot(Stocks_converted$date, (Stocks_converted$RSA.L/Stocks_converted$RSA.L[1]), 
+     col = 1, 
+     lty = 1, 
+     type = "l",
+     xlab = "Dates",
+     ylab = "Stock performance",
+     main = "UK",
+     ylim = c(0,2.5))
+lines(Stocks_converted$date, (Stocks_converted$LRE.L/Stocks_converted$LRE.L[1]), col = 2, lty = 1, type = "l")
+lines(Stocks_converted$date, (Index_rates$X.FTSE*FX_rates$GBPUSD.X)/(Index_rates$X.FTSE[1]*FX_rates$GBPUSD.X[1]), col = 3, lty = 1, type ="l")
+legend("topleft", legend = c("RSA.L", "LRE.L", "X.FTSE"), col = c(1,2,3), lty =c(1,1,1), cex = 0.8)
+
+
+
+
+```
+
+
+
+```{r}
+plot(Stocks_converted$date, Stocks_converted$COST/Stocks_converted$COST[1], col = 1, lty = 1, type = "l",
+     main = "USA",
+     ylab = "Stock performance",
+     xlab = "Dates",
+     ylim = c(0,21))
+lines(Stocks_converted$date, Stocks_converted$FDX/Stocks_converted$FDX[1], col = 2, lty = 1, type = "l")
+lines(Stocks_converted$date, Stocks_converted$IBM/Stocks_converted$IBM[1], col = 3, lty = 1, type = "l")
+lines(Stocks_converted$date, Stocks_converted$XOM/Stocks_converted$XOM[1], col = 4, lty = 1, type = "l")
+lines(Stocks_converted$date, Stocks_converted$DIS/Stocks_converted$DIS[1], col = 5, lty = 1, type = "l")
+lines(Stocks_converted$date, Stocks_converted$AAPL/Stocks_converted$AAPL[1], col = 6, lty = 1, type = "l")
+lines(Stocks_converted$date, USdata$X.DJI/USdata$X.DJI[1], col = 7, lty = 1, type = "l")
+legend("topleft", legend = c("COST", "FDX", "IBM", "XOM", "DIS","AAPL","X.DJI"), col = c(1,2,3,4,5,6,7), lty =c(1,1,1,1,1,1,1), cex = 0.8)
+```
+
+
+```{r}
+plot(FX_rates$date, FX_rates$EURUSD.X/FX_rates$EURUSD.X[1], col = 1, lty = 1, type = "l",
+     main = "EURUSD.X",
+     ylab = "Exchange rate",
+     xlab = "Dates",
+     ylim = c(0,2))
+lines(FX_rates$date, FX_rates$GBPUSD.X/FX_rates$GBPUSD.X[1], col = 2, lty = 1, type = "l")
+legend("topleft", legend = c("EURUSD.X", "GBPUSD.X"), col = c(1,2,3,4,5,6,7), lty =c(1,1,1,1,1,1,1), cex = 0.8)
+```
+
+
+
+```{r}
+
+returnCalc <- function(x){
+  diff(x)/x[-length(x)]
+}
+```
+
+
+```{r}
+
+n <- nrow(Stocks)
+Stock_returns <- matrix(NA,nrow=n-1, ncol = 11)
+Stock_returns_converted <- matrix(NA,nrow=n-1, ncol = 11)
+
+
+for (i in 2:11){
+  Stock_returns[,i] <- returnCalc(Stocks[,i])
+  Stock_returns_converted[,i] <- returnCalc(Stocks_converted[,i])
+}
+
+#### Matching stocks with corresponding stock names
+Stock_returns <- data.frame(Stock_returns)
+Stock_returns_converted <- data.frame(Stock_returns_converted)
+Stock_returns[,1] <- Stocks$date[2:n]
+Stock_returns_converted[,1] <- Stocks_converted$date[2:n]
+names(Stock_returns) <- stock_names
+names(Stock_returns_converted) <- stock_names
+
+```
+
+Computing average yearly returns 
+```{r}
+
+Stock_hist_ave <- matrix(NA, nrow = 1, ncol = 10)
+
+for(i in 2:11){
+  #Daily average return
+  Stock_hist_ave[1,i-1] <- sum(Stock_returns[i])/(n-1)
+  #Daily average return converted to average yearly return
+  Stock_hist_ave[1,i-1] <- (1+Stock_hist_ave[1,i-1])**252
+  # Average yearly return -1 to get the %
+  Stock_hist_ave[1,i-1] <- Stock_hist_ave[1,i-1]-1
+}
+
+Stock_hist_ave <- data.frame(Stock_hist_ave)
+names(Stock_hist_ave) <- stock_names[2:11]
+Stock_hist_ave
+
+```
+
+
+Annualizing the standard deviation
+```{r}
+
+Stock_annualized_SD <- matrix(NA,nrow=1,ncol = 10)
+for(i in 2:11){
+  Stock_annualized_SD[1,i-1] <- sd(Stock_returns[,i])
+  Stock_annualized_SD[1,i-1] <- Stock_annualized_SD[1,i-1]*sqrt(252)
+}
+
+Stock_annualized_SD <- data.frame(Stock_annualized_SD)
+names(Stock_annualized_SD) <- stock_names[2:11]
+
+Stock_annualized_SD
+
+```
+
+
+#Calculating the correlation between stock returns - covariancee and daily standard deviation
+```{r}
+Stocks_cor <- cor(Stock_returns[,2:11])
+Stocks_cov <- cov(Stock_returns[,2:11])
+Stocks_daily_SD <- sqrt(diag(Stocks_cov))
+
+round(Stocks_cor,2)
+
+```
+
+
+```{r}
+##### KBL
+##### Mapping of portfolio into stock returns and FX returns (total of 10+2 risk factors) and using Model Based Approach
+
+##### Here we must use the original currencies of each of the stocks returns
+#Stock_returns
+
+#### Generate the returns of the two FX rates needed
+
+n <- nrow(Stocks)
+FX_returns <- matrix(NA,nrow=n-1, ncol = 3)
+
+for (i in 2:3){
+  FX_returns[,i] <- returnCalc(FX_rates[,i])
+}
+
+#### Matching FX rates with corresponding names
+FX_returns <- data.frame(FX_returns)
+FX_returns[,1] <- FX_rates$date[2:n]
+names(FX_returns) <- names(FX_rates)[1:3]
+
+# Merge the orignal returns and the FX currency exchange currencies into a single dataframe
+returns_org_cur <- merge(Stock_returns, FX_returns)
+
+# Calculate covariance_matrix of the original currencies
+covariances_org_cur <- cov(returns_org_cur[2:13]) # Skip the first column that is the date
+
+# Here we use the original returns data and add the FX risk factors as well
+# FX risk factors here are here EURUSD, GBPUSD with exposure 2.000.000 each otherwise 1.000.000 in each stock
+alphas_fx = c(1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 2000000, 2000000)
+
+# Portfolio std
+port_std_org_cur <- sqrt(t(alphas_fx) %*% covariances_org_cur %*% alphas_fx)
+
+# EX5: Q2 - KEEP EVERYTHING IN ORIGINAL CURRENCY AND ADD EXCHANGE RATES AS RISK FACTOR
+# 10 risk factors, returns of all stocks measured in original currency, returns on FX (EURUSD, GBPUSD)
+
+# VaR calculations
+n_99 = qnorm(0.99)
+n_95 = qnorm(0.95)
+
+# One day VAR and ES for 95% and 99% confidence
+one_day_99_var = port_std_org_cur*n_99
+one_day_99_es = port_std_org_cur*exp(-(n_99^2)/2)/(sqrt(2*pi)*0.01)
+
+one_day_95_var = port_std_org_cur*n_95
+one_day_95_es = port_std_org_cur*exp(-(n_95^2)/2)/(sqrt(2*pi)*0.05)
+
+paste("One day 99% VaR: ", round(one_day_99_var))
+paste("One day 99% ES:  ", round(one_day_99_es))
+paste("One day 95% VaR: ", round(one_day_95_var))
+paste("One day 95% ES:  ", round(one_day_95_es))
+```
+
+
+```{r}
+##### KBL
+##### Backtesting of model.
+##### 
+
+var_95_series = c();
+es_95_series = c()
+var_99_series = c();
+es_99_series = c();
+
+for (i in 1:252){
+  #print("Iteration:")
+  #print(i)
+  
+  # How much data we have in total
+  N <- nrow(returns_org_cur)
+  
+  # Slice the returns in the original currencies to the data we want to use in the backtesting
+  returns_org_cur_backtesting <-  returns_org_cur
+  
+  returns_org_cur_backtesting <- returns_org_cur_backtesting[i:(N-252+i),]
+
+  #print(returns_org_cur_backtesting[1,])
+
+  # Calculate covariance_matrix of the original currencies
+  covariances_org_cur <- cov(returns_org_cur_backtesting[2:13]) # Skip the first column that is the date
+  
+  # Here we use the original returns data and add the FX risk factors as well
+  # FX risk factors here are here EURUSD, GBPUSD with exposure 2.000.000 each otherwise 1.000.000 in each stock
+  alphas_fx = c(1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 2000000, 2000000)
+  
+  # Portfolio std
+  port_std_org_cur <- sqrt(t(alphas_fx) %*% covariances_org_cur %*% alphas_fx)
+  
+  # EX5: Q2 - KEEP EVERYTHING IN ORIGINAL CURRENCY AND ADD EXCHANGE RATES AS RISK FACTOR
+  # 10 risk factors, returns of all stocks measured in original currency, returns on FX (EURUSD, GBPUSD)
+  
+  # VaR calculations
+  n_99 = qnorm(0.99)
+  n_95 = qnorm(0.95)
+  
+  # One day VAR and ES for 95% and 99% confidence
+  one_day_99_var = port_std_org_cur*n_99
+  one_day_99_es = port_std_org_cur*exp(-(n_99^2)/2)/(sqrt(2*pi)*0.01)
+  
+  one_day_95_var = port_std_org_cur*n_95
+  one_day_95_es = port_std_org_cur*exp(-(n_95^2)/2)/(sqrt(2*pi)*0.05)
+  
+  #print(one_day_95_var[1,1])
+  
+  var_95_series = append(var_95_series, one_day_95_var[1,1])
+  es_95_series = append(es_95_series, one_day_95_es[1,1])
+  var_99_series = append(var_99_series, one_day_99_var[1,1])
+  es_99_series = append(es_99_series, one_day_99_es[1,1])
+}
+
+```
+
+```{r}
+
+backtest_dates = tail(returns_org_cur$date, 252)
+
+plot(backtest_dates, -var_99_series, col = 1, lty = 1, type = "l",
+     main = "-VaR 99% - Backtesting",
+     ylab = "-VaR",
+     xlab = "Dates")
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+# PNL - reiknað út frá original portfolio og return fyrir hvern dag
+
+
+pnl = rowSums(Stock_returns_converted[2:11] * c(1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000)[col(Stock_returns_converted)])
+names(pnl) <- Stock_returns_converted[,1]
+
+dates_bt = tail(Stock_returns_converted$date, 252)
+
+plot(dates_bt, tail(pnl, 252), col = 1, lty = 1, type = "l",
+     main = "Backtesting 95% VaR",
+     ylab = "PNL",
+     xlab = "Dates")
+lines(dates_bt, -var_95_series, col = 2, lty = 1, type = "l")
+legend("topleft", legend = c("PnL", "VaR 95%"), col = c(1,2), lty =c(1,1), cex = 0.8)
+
+```
+```{r}
+# Coverage test - VaR 95%
+
+# PNL values
+pnl_values = tail(pnl, 252)
+# var_95_series has a positive sign
+
+# number where loss exceeds VaR
+n1 = sum(pnl_values + var_95_series < 0)
+n0 = 252-n1
+
+sigma_exp = 0.05
+sigma_obs = n1 / 252 # observed proportion of exceedances
+
+test_statistic_LR_uc = ((sigma_exp**n1)*(1-sigma_exp)**n0) / ((sigma_obs**n1)*(1-sigma_obs)**n0)
+LR_uc = -2 * log(test_statistic_LR_uc)
+
+# Deny if 10% > 2.71 and at a 5% level, if LR_uc > 3.84
+LR_uc
+```
+
+
+```{r}
+plot(backtest_dates, tail(pnl, 252), col = 1, lty = 1, type = "l",
+     main = "Backtesting 99% VaR",
+     ylab = "PnL",
+     xlab = "Dates")
+lines(backtest_dates, -var_99_series, col = 2, lty = 1, type = "l")
+legend("topleft", legend = c("PnL", "VaR"), col = c(1,2), lty =c(1,1), cex = 0.8)
+```
+
+```{r}
+# Coverage test - VaR 95%
+
+# PNL values
+pnl_values = tail(pnl, 252)
+
+# number where loss exceeds VaR
+n1 = sum(pnl_values + var_99_series < 0)
+n0 = 252-n1
+
+sigma_exp = 0.01
+sigma_obs = n1 / 252 # observed proportion of exceedances
+
+test_statistic_LR_uc = ((sigma_exp**n1)*(1-sigma_exp)**n0) / ((sigma_obs**n1)*(1-sigma_obs)**n0)
+LR_uc = -2 * log(test_statistic_LR_uc)
+
+# Deny if 10% > 2.71 and at a 5% level, if LR_uc > 3.84
+LR_uc
+```
+
+
+

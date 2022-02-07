@@ -1,0 +1,376 @@
+---
+title: "FRM_Midterm_Project_1"
+output: html_document
+---
+
+```{r}
+rm(list = ls())
+```
+
+
+```{r}
+#library("forecast")
+#library("tseries")
+library("gridExtra")
+library("ggplot2")
+library("FKF")
+#library("zoo")
+library(readxl)
+library(data.table)
+library(R.matlab)
+library(MTS)
+library(car)
+
+```
+
+
+
+
+DATA
+```{r}
+
+GEdata <- read.csv("GEData.txt",sep= ",", header = TRUE)
+UKdata <- read.csv("UKData.txt", sep = ",", header=TRUE)
+USdata <- read.csv("USData.txt", sep = ",", header= TRUE)
+
+```
+
+
+```{r}
+
+#Germany: BMW.DE , DBK.DE
+#United kingdom: RSA.L , LRE.L
+#USA : COST, FDX, IBM, XOM, DIS, APPL
+
+
+
+
+
+GE_list <- c("BMW.DE", "DBK.DE")
+UK_list <- c("RSA.L", "LRE.L")
+US_list <- c("COST","FDX","IBM","XOM","DIS","AAPL")
+FX_names <- c("EURUSD.X", "GBPUSD.X")
+Indices <- c("X.GDAXI", "X.FTSE", "X.DJI")
+
+GE_data <- subset.data.frame(GEdata, select = GE_list)
+UK_data <- subset.data.frame(UKdata, select = UK_list)
+US_data <- subset.data.frame(USdata, select = US_list)
+
+FX_data_1 <- subset.data.frame(GEdata, select = FX_names[1])
+FX_data_2 <- subset.data.frame(UKdata, select = FX_names[2])
+
+Index_GE <- subset.data.frame(GEdata, select = Indices[1])
+Index_UK <- subset.data.frame(UKdata, select = Indices[2])
+Index_US <- subset.data.frame(USdata, select = Indices[3])
+Index_rates <- cbind(Index_US, Index_GE, Index_UK)
+
+
+
+```
+
+
+
+Dates
+```{r}
+dates <- fread("USdata.txt", select = c("Year","Month","Day"))
+GEdata$date <- as.Date(with(dates, paste(Year, Month, Day,sep="-")), "%Y-%m-%d")
+UKdata$date <- as.Date(with(dates, paste(Year, Month, Day,sep="-")), "%Y-%m-%d")
+USdata$date <- as.Date(with(dates, paste(Year, Month, Day,sep="-")), "%Y-%m-%d")
+
+date <- USdata$date
+```
+
+Merging data
+```{r}
+Stocks <- cbind(date,US_data,GE_data,UK_data)
+FX_rates <- cbind(date,FX_data_1,FX_data_2)
+#Index_rates <- cbind(date,Index_GE, Index_UK)
+stock_names <- colnames(Stocks)
+```
+
+
+
+Converting GE and UK to USD
+
+```{r}
+
+Stocks_converted <- Stocks
+Stocks_converted[,8:9] <- Stocks[,8:9]*FX_rates$EURUSD.X
+Stocks_converted[,10:11] <- Stocks[,10:11]*FX_rates$GBPUSD.X
+
+```
+
+```{r}
+Stocks_converted
+```
+
+
+
+```{r}
+
+plot(Stocks_converted$date, Stocks_converted$COST/Stocks_converted$COST[1], col = 1, lty = 1, type = "l", ylim=c(0,21), xlab = "Date", ylab="Stock prices in USD")
+for (i in 3:11){
+  lines(Stocks_converted$date, Stocks_converted[,i]/Stocks_converted[,i][1], col = i, lty = 1, type = "l")
+}
+
+legend("topleft", legend = c(stock_names[2:11]), col = c(1:10), lty = c(1,1,1,1,1,1,1,1,1,1), cex = 0.5)
+
+```
+
+
+
+
+
+X.GDAXI = Germany index
+X.FTSE = UK index
+X.DJI = US index
+
+
+Comparing the performance of stocks compared to the corresponding index in USD
+```{r}
+
+plot(Stocks_converted$date, (Stocks_converted$BMW.DE/Stocks_converted$BMW.DE[1]), col = 1, lty = 1, type="l", ylim=c(0,5), 
+     main = "Germany",
+     xlab = "Dates",
+     ylab = "Stock performance")
+lines(Stocks_converted$date, (Stocks_converted$DBK.DE/Stocks_converted$DBK.DE[1]), col = 2, lty = 1, type="l")
+lines(Stocks_converted$date, (Index_rates$X.GDAXI*FX_rates$EURUSD.X/(Index_rates$X.GDAXI[1]*FX_rates$EURUSD.X[1])), col = 3, lty = 1, type = "l")
+legend("topleft", legend = c("BMW", "DBK", "GDAXI"), col = c(1,2,3), lty =c(1,1,1),cex=0.8)
+
+
+```
+
+Plot of UK stocks performance
+```{r}
+plot(Stocks_converted$date, (Stocks_converted$RSA.L/Stocks_converted$RSA.L[1]), 
+     col = 1, 
+     lty = 1, 
+     type = "l",
+     xlab = "Dates",
+     ylab = "Stock performance",
+     main = "UK",
+     ylim = c(0,2.5))
+lines(Stocks_converted$date, (Stocks_converted$LRE.L/Stocks_converted$LRE.L[1]), col = 2, lty = 1, type = "l")
+lines(Stocks_converted$date, (Index_rates$X.FTSE*FX_rates$GBPUSD.X)/(Index_rates$X.FTSE[1]*FX_rates$GBPUSD.X[1]), col = 3, lty = 1, type ="l")
+legend("topleft", legend = c("RSA.L", "LRE.L", "X.FTSE"), col = c(1,2,3), lty =c(1,1,1), cex = 0.8)
+
+
+
+
+```
+
+
+Plot of USA stock performance
+```{r}
+
+plot(Stocks_converted$date, Stocks_converted$COST/Stocks_converted$COST[1], col = 1, lty = 1, type = "l",
+     main = "USA",
+     ylab = "Stock performance",
+     xlab = "Dates",
+     ylim = c(0,21))
+lines(Stocks_converted$date, Stocks_converted$FDX/Stocks_converted$FDX[1], col = 2, lty = 1, type = "l")
+lines(Stocks_converted$date, Stocks_converted$IBM/Stocks_converted$IBM[1], col = 3, lty = 1, type = "l")
+lines(Stocks_converted$date, Stocks_converted$XOM/Stocks_converted$XOM[1], col = 4, lty = 1, type = "l")
+lines(Stocks_converted$date, Stocks_converted$DIS/Stocks_converted$DIS[1], col = 5, lty = 1, type = "l")
+lines(Stocks_converted$date, Stocks_converted$AAPL/Stocks_converted$AAPL[1], col = 6, lty = 1, type = "l")
+lines(Stocks_converted$date, USdata$X.DJI/USdata$X.DJI[1], col = 7, lty = 1, type = "l")
+legend("topleft", legend = c("COST", "FDX", "IBM", "XOM", "DIS","AAPL","X.DJI"), col = c(1,2,3,4,5,6,7), lty =c(1,1,1,1,1,1,1), cex = 0.8)
+
+
+
+```
+
+
+
+```{r}
+
+returnCalc <- function(x){
+  diff(x)/x[-length(x)]
+}
+```
+
+
+
+
+
+Calulating daily returns for the stocks
+```{r}
+
+n <- nrow(Stocks)
+Stock_returns <- matrix(NA,nrow=n-1, ncol = 11)
+
+for (i in 2:11){
+  Stock_returns[,i] <- returnCalc(Stocks_converted[,i])
+}
+
+#### Matching stocks with corresponding stock names
+Stock_returns <- data.frame(Stock_returns)
+Stock_returns[,1] <- Stocks$date[2:n]
+names(Stock_returns) <- stock_names
+
+
+```
+
+Computing average yearly returns 
+```{r}
+
+Stock_hist_ave <- matrix(NA, nrow = 1, ncol = 10)
+
+for(i in 2:11){
+  #Daily average return
+  Stock_hist_ave[1,i-1] <- sum(Stock_returns[i])/(n-1)
+  #Daily average return converted to average yearly return
+  Stock_hist_ave[1,i-1] <- (1+Stock_hist_ave[1,i-1])**252
+  # Average yearly return -1 to get the %
+  Stock_hist_ave[1,i-1] <- Stock_hist_ave[1,i-1]-1
+}
+
+Stock_hist_ave <- data.frame(Stock_hist_ave)
+names(Stock_hist_ave) <- stock_names[2:11]
+Stock_hist_ave
+
+
+
+```
+
+
+Annualizing the standard deviation
+```{r}
+
+Stock_annualized_SD <- matrix(NA,nrow=1,ncol = 10)
+for(i in 2:11){
+  Stock_annualized_SD[1,i-1] <- sd(Stock_returns[,i])
+  Stock_annualized_SD[1,i-1] <- Stock_annualized_SD[1,i-1]*sqrt(252)
+}
+
+Stock_annualized_SD <- data.frame(Stock_annualized_SD)
+names(Stock_annualized_SD) <- stock_names[2:11]
+
+Stock_annualized_SD
+
+```
+
+
+#Calculating the correlation between stock returns - covariancee and daily standard deviation
+```{r}
+Stocks_cor <- cor(Stock_returns[,2:11])
+Stocks_cov <- cov(Stock_returns[,2:11])
+Stocks_daily_SD <- sqrt(diag(Stocks_cov))
+
+Stocks_cov
+
+```
+
+
+Conversion of foreign stocks to USD-value and Model Based Approach using equal weights for
+determining the covariance matrix
+```{r}
+weights = seq(10**6,10**6, length = 10)
+
+var_equal_weights <- t(weights) %*% Stocks_cov %*%weights
+
+sd_equal_weights <- sqrt(var_equal_weights)
+
+```
+
+Calculating 99% and 95% VaR and ES 
+```{r}
+Z_99 <- qnorm(0.99,0,1)
+Z_95 <- qnorm(0.95,0,1)
+
+ONEday_VAR_99 <- Z_99*sd_equal_weights
+ONEday_ES_99 <- sd_equal_weights*exp(-(Z_99^2)/2)/(sqrt(2*pi)*0.01)
+
+ONEday_VAR_95 <- Z_95*sd_equal_weights
+ONEday_ES_95 <- sd_equal_weights*exp(-(Z_95^2)/2)/(sqrt(2*pi)*0.05)
+
+
+```
+
+Printing out results
+```{r}
+
+cat("Model Based Approach using equal weights for determining Covariance Matrix")
+cat(sep="\n\n")
+cat("Equal weight Portfolio for:", nrow(Stocks), "data points")
+cat(sep="\n\n")
+cat("One day 99% VaR:", ONEday_VAR_99, "and ES:", ONEday_ES_99)
+cat(sep="\n\n")
+cat("One day 95% VaR:", ONEday_VAR_95, "and ES:", ONEday_ES_95)
+```
+
+
+
+Conversion of foreign stocks to USD-value and Model Based Approach using EWMA weights for
+determining the covariance matrix (with N+1?)
+
+Population variance not sample variance
+```{r}
+varp <- function(x) mean((x-mean(x))^2)
+```
+
+
+Beginning
+```{r}
+lambda <- 0.94
+
+#Variance_EWMA <- matrix(NA, nrow = nrow(Stock_returns)+1, ncol = ncol(Stock_returns[2:11]))
+
+HistoricalReturns <- data.matrix(Stock_returns[,2:11])
+Cov_Matrix = cov(Stock_returns[,2:11]) 
+Variances_EWMA <- Cov_Matrix
+
+
+#Calclating the covariance-variance matrix
+for (i in 2:length(Stocks$date)){
+  Variances_EWMA <- lambda*Variances_EWMA + (1-lambda)*HistoricalReturns[i-1,]%*%t(HistoricalReturns[i-1,]);
+}
+
+
+
+
+
+```
+
+
+
+```{r}
+FinalVols_1 <- 100*diag(Cov_Matrix)**0.5
+
+FinalVols_2 <- 100*diag(Variances_EWMA)**0.5
+
+SD <-diag(Variances_EWMA)**0.5
+
+PF_variance_EWMA <- t(weights)%*%Variances_EWMA%*%weights
+
+VAR99_EWMA <- qnorm(0.99)*sqrt(PF_variance_EWMA)
+
+ES99_EWMA <- sqrt(PF_variance_EWMA)*exp(-qnorm(0.99)^2/2)/sqrt(2*pi)/0.01
+
+
+VAR_95_EWMA <- qnorm(0.95)*sqrt(PF_variance_EWMA)
+ES95_EWMA <- sqrt(PF_variance_EWMA)*exp(-qnorm(0.95)^2/2)/sqrt(2*pi)/0.05
+
+```
+
+Printing out results
+```{r}
+
+cat("Model Based Approach using EWMA weights for determining the covariance matrix")
+cat(sep="\n\n")
+cat("MBA - EWMA Portfolio for:", nrow(Stocks), "data points")
+cat(sep="\n\n")
+cat("One day 99% VaR:", VAR99_EWMA, "and ES:", ES99_EWMA)
+cat(sep="\n\n")
+cat("One day 95% VaR:", VAR_95_EWMA, "and ES:", ES95_EWMA)
+```
+
+Backtesting on MBA using Equal weights for determining the covariance matrix.
+
+```{r}
+window = 252
+
+
+
+```
+
