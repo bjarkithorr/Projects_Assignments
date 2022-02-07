@@ -1,0 +1,279 @@
+Club,interestName,assetSize,assetPercentage,benchmarkSize,benchmarkPercentage,affinity
+Arsenal,Frequent Travelers,1300000,52.0,18000000,36.734693877550995,141.55555555556
+Arsenal,Small business owners,56000,2.24,860000,1.7551020408162998,127.62790697674
+Arsenal,Facebook Payments users (90 days),2200,0.08800000000000001,56000,0.11428571428571001,77.0
+Arsenal,Technology early adopters,97000,3.88,1100000,2.2448979591837,172.83636363636
+Arsenal,Facebook access (OS): Windows 7,2300,0.092,32000,0.06530612244898001,140.875
+Arsenal,Facebook access (OS): Mac OS X,9200,0.368,150000,0.30612244897959,120.21333333333
+Arsenal,Facebook access (OS): Windows Vista,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Facebook access (OS): Windows XP,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Facebook access (mobile): iPhone 4S,1000,0.04,9100,0.018571428571429002,215.38461538462
+Arsenal,Facebook access (mobile): iPhone 4,1000,0.04,1900,0.0038775510204082,1031.5789473684
+Arsenal,Facebook access (mobile): Android devices,680000,27.2,11000000,22.448979591837002,121.16363636363998
+Arsenal,Facebook access (mobile): feature phones,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Facebook access (mobile): iPod Touch,1000,0.04,12000,0.024489795918367002,163.33333333333
+Arsenal,Facebook access (mobile): Windows phones,1100,0.044000000000000004,22000,0.044897959183672995,98.0
+Arsenal,Facebook access (mobile): Apple (iOS) devices,910000,36.4,11000000,22.448979591837002,162.14545454545
+Arsenal,Facebook access (mobile): iPad 3,3400,0.136,68000,0.13877551020408,98.0
+Arsenal,Facebook access (mobile): iPad 2,4600,0.184,100000,0.20408163265306,90.16
+Arsenal,Facebook access (mobile): iPad 1,7100,0.284,170000,0.3469387755102,81.858823529412
+Arsenal,Facebook access (mobile): Samsung Android mobile devices,270000,10.8,4500000,9.1836734693878,117.6
+Arsenal,Facebook access (mobile): HTC Android mobile devices,1000,0.04,19000,0.038775510204082,103.15789473684
+Arsenal,Facebook access(mobile): LG Android mobile devices,1600,0.064,45000,0.09183673469387801,69.688888888889
+Arsenal,Facebook access (mobile): Sony Android mobile devices,12000,0.48,250000,0.5102040816326501,94.08
+Arsenal,Facebook access (mobile): all mobile devices,1100000,44.0,15000000,30.612244897959,143.73333333333
+Arsenal,Facebook access (mobile): smartphones and tablets,1500000,60.0,20000000,40.816326530612,147.0
+Arsenal,Facebook access (mobile): Motorola Android mobile devices,6200,0.248,170000,0.3469387755102,71.482352941176
+Arsenal,Facebook access: older devices and OS,310000,12.4,5600000,11.428571428571,108.5
+Arsenal,Facebook access (mobile): iPhone 5,1500,0.06,35000,0.071428571428571,84.0
+Arsenal,Facebook Payments users (30 days),1000,0.04,23000,0.046938775510204006,85.217391304348
+Arsenal,Facebook access (OS): Windows 8,1600,0.064,25000,0.051020408163265,125.44
+Arsenal,New smartphone and tablet users,25000,1.0,400000,0.81632653061224,122.5
+Arsenal,Owns: Galaxy S III devices,1000,0.04,4000,0.0081632653061224,490.0
+Arsenal,Console gamers,350000,14.0,2000000,4.081632653061201,343.0
+Arsenal,Returned from travels 1 week ago,110000,4.4,1300000,2.6530612244897998,165.84615384615
+Arsenal,Returned from travels 2 weeks ago,15000,0.6,180000,0.36734693877551006,163.33333333333
+Arsenal,Owns: Kindle Fire,1000,0.04,3000,0.0061224489795918,653.33333333333
+Arsenal,Facebook access (mobile): iPhone 5S,6600,0.264,160000,0.32653061224490004,80.85
+Arsenal,Facebook access (mobile): iPhone 5C,1100,0.044000000000000004,27000,0.05510204081632701,79.851851851852
+Arsenal,Owns: LG G2 devices,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: iPad 4,9900,0.396,190000,0.38775510204082,102.12631578946998
+Arsenal,Owns: iPad Mini 1,6900,0.276,130000,0.26530612244898005,104.03076923076999
+Arsenal,Owns: iPad Air,18000,0.72,350000,0.71428571428571,100.8
+Arsenal,Owns: iPad Mini 2,10000,0.4,190000,0.38775510204082,103.15789473684
+Arsenal,Owns: Huawei,91000,3.64,1600000,3.265306122449,111.475
+Arsenal,Owns: Galaxy Y devices,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Galaxy S4,1000,0.04,9400,0.019183673469388,208.51063829786997
+Arsenal,Owns: Galaxy S III Mini,1000,0.04,3700,0.0075510204081633,529.72972972973
+Arsenal,Galaxy Note II,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Galaxy Grand,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Curve 9220,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Galaxy S 4 Mini,1000,0.04,2600,0.0053061224489796,753.8461538461501
+Arsenal,Owns: Galaxy Note 3,1000,0.04,5800,0.011836734693878,337.93103448276
+Arsenal,Commuters,140000,5.6,1400000,2.8571428571429,196.0
+Arsenal,Owns: Galaxy S5,1200,0.048,36000,0.073469387755102,65.333333333333
+Arsenal,Owns: Nexus 5,1000,0.04,1400,0.0028571428571429,1400.0
+Arsenal,Owns: HTC One,1000,0.04,6400,0.013061224489796,306.25
+Arsenal,Facebook access (network type): WiFi,1300000,52.0,18000000,36.734693877550995,141.55555555556
+Arsenal,Owns: Galaxy Grand 2,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Facebook access (browser): Firefox,12000,0.48,250000,0.5102040816326501,94.08
+Arsenal,Facebook access (browser): Chrome,270000,10.8,4400000,8.979591836734699,120.27272727273001
+Arsenal,Lives abroad,170000,6.8,3600000,7.346938775510201,92.555555555556
+Arsenal,Facebook access (browser): Safari,220000,8.8,3200000,6.530612244898,134.75
+Arsenal,Facebook access (browser): Opera,1000,0.04,9600,0.019591836734694,204.16666666667
+Arsenal,Facebook access (browser): Internet Explorer,1000,0.04,14000,0.028571428571429,140.0
+Arsenal,Facebook Page admins,680000,27.2,9100000,18.571428571429,146.46153846154
+Arsenal,Facebook access (mobile): tablets,1000000,40.0,16000000,32.65306122449,122.5
+Arsenal,Lived in India (Formerly Expats - India),7600,0.304,270000,0.55102040816327,55.170370370369994
+Arsenal,Owns: Galaxy Tab S,1000,0.04,8500,0.01734693877551,230.58823529412004
+Arsenal,Owns: Galaxy Tab Pro,1000,0.04,4600,0.0093877551020408,426.08695652174
+Arsenal,Owns: Galaxy Tab 4,1300,0.052000000000000005,32000,0.06530612244898001,79.625
+Arsenal,Owns: Galaxy Tab 3,1000,0.04,22000,0.044897959183672995,89.09090909090901
+Arsenal,Owns: Galaxy Tab 2,1000,0.04,5900,0.012040816326531,332.20338983051005
+Arsenal,Galaxy Tab,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Xperia M,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Xperia SL,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Xperia T,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Xperia Z,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Xperia Z Ultra,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Facebook access (network type): 2G,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Facebook access (network type): 3G,1500,0.06,28000,0.05714285714285701,105.0
+Arsenal,Facebook access (network type): 4G,170000,6.8,2100000,4.2857142857143,158.66666666667
+Arsenal,Owns: LG G3,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: iPhone 6 Plus,2700,0.10800000000000001,63000,0.12857142857143,84.0
+Arsenal,Owns: iPhone 6,19000,0.76,360000,0.7346938775510201,103.44444444444001
+Arsenal,Anniversary (within 61-90 days),39000,1.56,420000,0.85714285714286,182.0
+Arsenal,Lived in Kenya (Formerly Expats - Kenya),1600,0.064,21000,0.042857142857142996,149.33333333333
+Arsenal,Lived in Nigeria (Formerly Expats - Nigeria),11000,0.44,110000,0.22448979591837,196.0
+Arsenal,Lived in Cameroon (Formerly Expats - Cameroon),1000,0.04,6700,0.013673469387754999,292.53731343284
+Arsenal,Lived in Philippines (Formerly Expats - Philippines),2100,0.084,96000,0.19591836734694001,42.875
+Arsenal,Lived in Cuba (Formerly Expats - Cuba),1000,0.04,2200,0.0044897959183673,890.90909090909
+Arsenal,Lived in Ethiopia (Formerly Expats - Ethiopia),1700,0.068,13000,0.026530612244897996,256.30769230769
+Arsenal,Lived in Haiti (Formerly Expats - Haiti),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: iPad Air 2,19000,0.76,330000,0.6734693877551,112.84848484848
+Arsenal,Played Canvas games (yesterday),2600,0.10400000000000001,88000,0.17959183673469,57.909090909091
+Arsenal,Played Canvas games (last 7 days),3100,0.124,100000,0.20408163265306,60.76
+Arsenal,Played Canvas games (last 14 days),3600,0.14400000000000002,120000,0.24489795918367002,58.8
+Arsenal,Owns: iPad Mini 3,1300,0.052000000000000005,24000,0.048979591836735004,106.16666666667
+Arsenal,Owns: Galaxy Note 4,1000,0.04,6200,0.01265306122449,316.12903225806
+Arsenal,Owns: Karbonn,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Micromax,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Xiaomi,2800,0.11199999999999999,68000,0.13877551020408,80.705882352941
+Arsenal,Played Canvas games (last 3 days),3100,0.124,100000,0.20408163265306,60.76
+Arsenal,Lived in Spain (Formerly Expats - Spain),2700,0.10800000000000001,60000,0.12244897959184001,88.2
+Arsenal,Lived in France (Formerly Expats - France),2700,0.10800000000000001,47000,0.09591836734693901,112.59574468084999
+Arsenal,Lived in Germany (Formerly Expats - Germany),1700,0.068,32000,0.06530612244898001,104.125
+Arsenal,Lived in Switzerland (Formerly Expats - Switzerland),1000,0.04,5500,0.011224489795918,356.36363636364
+Arsenal,Lived in United States (Formerly Expats - United States),8900,0.35600000000000004,170000,0.3469387755102,102.61176470588
+Arsenal,Lived in Poland (Formerly Expats - Poland),11000,0.44,360000,0.7346938775510201,59.888888888889
+Arsenal,Lived in Italy (Formerly Expats - Italy),4500,0.18,97000,0.19795918367346999,90.927835051546
+Arsenal,Lived in Ireland (Formerly Expats - Ireland),5600,0.22399999999999998,83000,0.16938775510204002,132.24096385542
+Arsenal,Lived in Hungary (Formerly Expats - Hungary),1400,0.055999999999999994,48000,0.09795918367346901,57.166666666667005
+Arsenal,Lived in Canada (Formerly Expats - Canada),1000,0.04,27000,0.05510204081632701,72.59259259259301
+Arsenal,Lived in China (Formerly Expats - China),1000,0.04,32000,0.06530612244898001,61.25
+Arsenal,Lived in Puerto Rico (Formerly Expats - Puerto Rico),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Lived in Brazil (Formerly Expats - Brazil),2200,0.08800000000000001,53000,0.10816326530612,81.358490566038
+Arsenal,Lived in Indonesia (Formerly Expats - Indonesia),1000,0.04,8400,0.017142857142857,233.33333333332996
+Arsenal,Lived in South Africa (Formerly Expats - South Africa),3300,0.132,75000,0.15306122448979997,86.24
+Arsenal,Lived in Zimbabwe (Formerly Expats - Zimbabwe),3800,0.152,40000,0.081632653061224,186.2
+Arsenal,Lived in Ghana (Formerly Expats - Ghana),4300,0.172,50000,0.10204081632653,168.56
+Arsenal,Lived in Uganda (Formerly Expats - Uganda),1000,0.04,10000,0.020408163265306,196.0
+Arsenal,Lived in Colombia (Formerly Expats - Colombia),1000,0.04,18000,0.036734693877551,108.88888888889
+Arsenal,Lived in Dominican Republic (Formerly Expats - Dominican Republic),1000,0.04,3700,0.0075510204081633,529.72972972973
+Arsenal,Lived in El Salvador (Formerly Expats - El Salvador),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Lived in Guatemala (Formerly Expats - Guatemala),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Travel & Tourism page admins,15000,0.6,270000,0.55102040816327,108.88888888889
+Arsenal,Sports page admins,35000,1.4,200000,0.40816326530612,343.0
+Arsenal,Retail page admins,10000,0.4,150000,0.30612244897959,130.66666666667
+Arsenal,Health & Beauty page admins,8300,0.332,200000,0.40816326530612,81.34
+Arsenal,Food & Restaurant page admins,4200,0.168,51000,0.10408163265306,161.41176470588002
+Arsenal,Community & Club page admins,46000,1.84,570000,1.1632653061223999,158.17543859648998
+Arsenal,Business page admins,50000,2.0,700000,1.4285714285714,140.0
+Arsenal,Lived in UK (Formerly Expats - UK),2300,0.092,34000,0.069387755102041,132.58823529411998
+Arsenal,Lived in Australia (Formerly Expats - Australia),3200,0.128,58000,0.11836734693878001,108.13793103448
+Arsenal,Lived in Portugal (Formerly Expats - Portugal),3800,0.152,72000,0.14693877551020001,103.44444444444001
+Arsenal,Owns: Xperia Z3,1000,0.04,1600,0.003265306122449,1225.0
+Arsenal,Frequent international travelers,1000000,40.0,14000000,28.571428571429,140.0
+Arsenal,Lived in Estonia (Formerly Expats - Estonia),1000,0.04,3400,0.0069387755102041,576.47058823529
+Arsenal,Lived in Norway (Formerly Expats - Norway),1000,0.04,6600,0.013469387755101998,296.9696969697
+Arsenal,Lived in Denmark (Formerly Expats - Denmark),1000,0.04,6500,0.013265306122448998,301.53846153846
+Arsenal,Lived in Czech Republic (Formerly Expats - Czech Republic),1000,0.04,21000,0.042857142857142996,93.333333333333
+Arsenal,Lived in Sweden (Formerly Expats - Sweden),1000,0.04,12000,0.024489795918367002,163.33333333333
+Arsenal,Lived in Netherlands (Formerly Expats - Netherlands),1000,0.04,12000,0.024489795918367002,163.33333333333
+Arsenal,Lived in Bangladesh (Formerly Expats - Bangladesh),2900,0.11599999999999999,84000,0.17142857142857001,67.666666666667
+Arsenal,Lived in Tanzania (Formerly Expats - Tanzania),1000,0.04,7300,0.014897959183673,268.49315068492996
+Arsenal,Lived in Nepal (Formerly Expats - Nepal),2200,0.08800000000000001,40000,0.081632653061224,107.8
+Arsenal,Lived in Jamaica (Formerly Expats - Jamaica),3000,0.12,37000,0.075510204081633,158.91891891892
+Arsenal,Lived in Thailand (Formerly Expats - Thailand),1000,0.04,27000,0.05510204081632701,72.59259259259301
+Arsenal,Lived in Sierra Leone (Formerly Expats - Sierra Leone),1100,0.044000000000000004,9700,0.019795918367347,222.26804123711003
+Arsenal,Lived in Senegal (Formerly Expats - Senegal),1000,0.04,2400,0.0048979591836735,816.66666666667
+Arsenal,Lived in Ivory Coast (Formerly Expats - Ivory Coast),1000,0.04,4800,0.0097959183673469,408.33333333333
+Arsenal,Owns: Alcatel,1000,0.04,18000,0.036734693877551,108.88888888889
+Arsenal,Owns: ZTE,1000,0.04,4700,0.0095918367346939,417.02127659573995
+Arsenal,Owns: Tecno,1000,0.04,2400,0.0048979591836735,816.66666666667
+Arsenal,Owns: Cherry Mobile,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Lived in Sri Lanka (Formerly Expats - Sri Lanka),1600,0.064,50000,0.10204081632653,62.72
+Arsenal,Lived in Morocco (Formerly Expats - Morocco),1000,0.04,13000,0.026530612244897996,150.76923076923
+Arsenal,Lived in UAE (Formerly Expats - UAE),1000,0.04,7400,0.015102040816327,264.86486486486
+Arsenal,Lived in New Zealand (Formerly Expats - New Zealand),1000,0.04,18000,0.036734693877551,108.88888888889
+Arsenal,Lived in Congo DRC (Formerly Expats - Congo DRC),1000,0.04,12000,0.024489795918367002,163.33333333333
+Arsenal,Lived in Singapore (Formerly Expats - Singapore),1000,0.04,6100,0.012448979591836998,321.31147540984
+Arsenal,Lived in United States (Formerly Expats - United States),7100,0.284,140000,0.28571428571429,99.4
+Arsenal,Lived in Austria (Formerly Expats - Austria),1000,0.04,3600,0.0073469387755102,544.44444444444
+Arsenal,Lived in Cyprus (Formerly Expats - Cyprus),1200,0.048,16000,0.03265306122449001,147.0
+Arsenal,Lived in Finland (Formerly Expats - Finland),1000,0.04,4200,0.0085714285714286,466.66666666667
+Arsenal,Lived in Greece (Formerly Expats - Greece),1000,0.04,1600,0.003265306122449,1225.0
+Arsenal,Lived in Hong Kong (Formerly Expats - Hong Kong),1100,0.044000000000000004,26000,0.05306122448979599,82.923076923077
+Arsenal,Lived in Japan (Formerly Expats - Japan),1000,0.04,9100,0.018571428571429002,215.38461538462
+Arsenal,Lived in Latvia (Formerly Expats - Latvia),1000,0.04,46000,0.09387755102040801,42.608695652174
+Arsenal,Lived in Lithuania (Formerly Expats - Lithuania),2100,0.084,99000,0.20204081632653,41.575757575758
+Arsenal,Lived in Luxembourg (Formerly Expats - Luxembourg),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Lived in Malta (Formerly Expats - Malta),1000,0.04,3600,0.0073469387755102,544.44444444444
+Arsenal,Lived in Monaco (Formerly Expats - Monaco),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Lived in Slovakia (Formerly Expats - Slovakia),1000,0.04,32000,0.06530612244898001,61.25
+Arsenal,Lived in Slovenia (Formerly Expats - Slovenia),1000,0.04,1300,0.0026530612244898,1507.6923076923001
+Arsenal,Lived in Mexico (Formerly Expats - Mexico),1000,0.04,7400,0.015102040816327,264.86486486486
+Arsenal,Lived in Argentina (Formerly Expats - Argentina),1000,0.04,6300,0.012857142857143,311.11111111111
+Arsenal,Lived in Israel (Formerly Expats - Israel),1000,0.04,5400,0.011020408163265,362.96296296296
+Arsenal,Lived in Russia (Formerly Expats - Russia),1000,0.04,19000,0.038775510204082,103.15789473684
+Arsenal,Lived in Saudi Arabia (Formerly Expats - Saudi Arabia),1000,0.04,4200,0.0085714285714286,466.66666666667
+Arsenal,Lived in Chile (Formerly Expats - Chile),1000,0.04,2700,0.0055102040816327,725.9259259259301
+Arsenal,Lived in Rwanda (Formerly Expats - Rwanda),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Family of those who live abroad,86000,3.44,1700000,3.4693877551020003,99.152941176471
+Arsenal,Lived in Venezuela (Formerly Expats - Venezuela),1000,0.04,9000,0.018367346938776,217.77777777778
+Arsenal,Owns: Galaxy S6,4800,0.192,120000,0.24489795918367002,78.4
+Arsenal,Lived in Malaysia (Formerly Expats - Malaysia),1000,0.04,19000,0.038775510204082,103.15789473684
+Arsenal,Lived in Romania (Formerly Expats - Romania),10000,0.4,280000,0.57142857142857,70.0
+Arsenal,Lived in South Korea (Formerly Expats - South Korea),1000,0.04,5000,0.010204081632653,392.0
+Arsenal,Lived in Serbia (Formerly Expats - Serbia),1000,0.04,5300,0.010816326530612,369.81132075472
+Arsenal,Lived in Vietnam (Formerly Expats - Vietnam),1000,0.04,17000,0.03469387755102,115.29411764706002
+Arsenal,Lived in Peru (Formerly Expats - Peru),1000,0.04,5200,0.010612244897958999,376.92307692308
+Arsenal,People who prefer high-value goods in India,1000,0.04,6700,0.013673469387754999,292.53731343284
+Arsenal,People who prefer mid and high-value goods in India,1000,0.04,11000,0.022448979591837004,178.18181818182
+Arsenal,Facebook access (OS): Windows 10,7700,0.308,130000,0.26530612244898005,116.09230769231002
+Arsenal,Owns: iPhone 6S,36000,1.44,630000,1.2857142857143,112.0
+Arsenal,Owns: iPhone 6S Plus,7400,0.29600000000000004,150000,0.30612244897959,96.693333333333
+Arsenal,Owns: Galaxy Note 5,1000,0.04,2000,0.0040816326530612,980.0
+Arsenal,Owns: LG V10,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Lived in Belgium (Formerly Expats - Belgium),1000,0.04,7600,0.015510204081633,257.89473684211004
+Arsenal,Owns: Galaxy S7,8400,0.336,180000,0.36734693877551006,91.46666666666701
+Arsenal,Owns: Galaxy S7 Edge,6600,0.264,140000,0.28571428571429,92.4
+Arsenal,People who prefer high-value goods in South Africa,1000,0.04,2700,0.0055102040816327,725.9259259259301
+Arsenal,People who prefer mid and high-value goods in South Africa,1000,0.04,1200,0.0024489795918367,1633.3333333332998
+Arsenal,People who prefer high-value goods in Brazil,1000,0.04,2200,0.0044897959183673,890.90909090909
+Arsenal,Owns: iPhone SE,31000,1.24,510000,1.0408163265306,119.13725490196
+Arsenal,Lived in Zambia (Formerly Expats - Zambia),1000,0.04,5600,0.011428571428571002,350.0
+Arsenal,Facebook access (browser): Microsoft Edge,39000,1.56,720000,1.469387755102,106.16666666667
+Arsenal,Owns: Oppo,1000,0.04,16000,0.03265306122449001,122.5
+Arsenal,Owns: VIVO devices,1000,0.04,6600,0.013469387755101998,296.9696969697
+Arsenal,Owns: Galaxy Note 7,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Lived in Honduras (Formerly Expats - Honduras),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: iPhone 7,84000,3.36,1200000,2.4489795918367,137.2
+Arsenal,Owns: iPhone 7 Plus,23000,0.92,360000,0.7346938775510201,125.22222222222
+Arsenal,Owns: Google Pixel,1000,0.04,2200,0.0044897959183673,890.90909090909
+Arsenal,Android: 360 degree media supported,380000,15.2,6400000,13.061224489796,116.375
+Arsenal,Facebook access (OS): Mac Sierra,20000,0.8,310000,0.6326530612244899,126.45161290323
+Arsenal,Android: 360 degree media not supported,3100,0.124,89000,0.18163265306122,68.269662921348
+Arsenal,Lived in Lebanon (Formerly Expats - Lebanon),1000,0.04,8400,0.017142857142857,233.33333333332996
+Arsenal,Lived in Jordan (Formerly Expats - Jordan),1000,0.04,3700,0.0075510204081633,529.72972972973
+Arsenal,Engaged Shoppers,940000,37.6,12000000,24.489795918367,153.53333333333
+Arsenal,Lived in Algeria (Formerly Expats - Algeria),1000,0.04,9400,0.019183673469388,208.51063829786997
+Arsenal,Lived in Nicaragua (Formerly Expats - Nicaragua),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Lived in Kuwait (Formerly Expats - Kuwait),1000,0.04,1500,0.0030612244897959,1306.6666666667
+Arsenal,Lived in Qatar (Formerly Expats - Qatar),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Gionee,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Galaxy S8,23000,0.92,390000,0.7959183673469399,115.58974358974
+Arsenal,Owns: Galaxy S8+,6000,0.24,100000,0.20408163265306,117.6
+Arsenal,Soccer fans (high content engagement),650000,26.0,2100000,4.2857142857143,606.66666666667
+Arsenal,Soccer fans (moderate content engagement),200000,8.0,1700000,3.4693877551020003,230.58823529412004
+Arsenal,People who prefer high-value goods in UAE,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer mid and high-value goods in UAE,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer high-value goods in Kingdom of Saudi Arabia,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer mid and high-value goods in Kingdom of Saudi Arabia,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Galaxy Note 8,2300,0.092,44000,0.08979591836734699,102.45454545455
+Arsenal,People who prefer high-value goods in Mexico,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer mid and high-value goods in Mexico,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Marketing API developers (last 90 days),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer high-value goods in Chile,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer mid and high-value goods in Chile,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer high-value goods in Argentina,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer mid and high-value goods in Argentina,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer high-value goods in Turkey,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer mid and high-value goods in Turkey,1000,0.04,1800,0.0036734693877551,1088.8888888889
+Arsenal,Uses a mobile device (less than 1 month),25000,1.0,400000,0.81632653061224,122.5
+Arsenal,Uses a mobile device (1-3 months),55000,2.2,840000,1.7142857142857,128.33333333333
+Arsenal,Uses a mobile device (4-6 months),85000,3.4,1200000,2.4489795918367,138.83333333333
+Arsenal,Uses a mobile device (7-9 months),100000,4.0,1400000,2.8571428571429,140.0
+Arsenal,Uses a mobile device (10-12 months),86000,3.44,1300000,2.6530612244897998,129.66153846154
+Arsenal,Uses a mobile device (13-18 months),170000,6.8,2400000,4.8979591836735,138.83333333333
+Arsenal,Uses a mobile device (19-24 months),230000,9.2,3000000,6.1224489795918,150.26666666667
+Arsenal,Uses a mobile device (25 months+),420000,16.8,6400000,13.061224489796,128.625
+Arsenal,People who prefer high-value goods in Indonesia,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Facebook access (mobile): iPhone 8,80000,3.2,900000,1.8367346938776001,174.22222222222
+Arsenal,Facebook access (mobile): iPhone 8 Plus,29000,1.16,410000,0.8367346938775501,138.63414634146002
+Arsenal,Facebook access (mobile): iPhone X,51000,2.04,480000,0.97959183673469,208.25
+Arsenal,Interested in Upcoming Events,37000,1.48,430000,0.8775510204081601,168.6511627907
+Arsenal,People who prefer high-value goods in Pakistan,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer mid and high-value goods in Pakistan,1000,0.04,1300,0.0026530612244898,1507.6923076923001
+Arsenal,People who prefer mid and high-value goods in Malaysia,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer high-value goods in Malaysia,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Owns: Galaxy S9,34000,1.36,460000,0.9387755102040799,144.86956521738998
+Arsenal,Owns: Galaxy S9+,11000,0.44,150000,0.30612244897959,143.73333333333
+Arsenal,Owns: OnePlus,7900,0.316,110000,0.22448979591837,140.76363636364
+Arsenal,People  in Indonesia who prefer mid and high-value goods,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People in Brazil who prefer mid and high-value goods,1000,0.04,3500,0.0071428571428571,560.0
+Arsenal,People who prefer high-value goods in Philippines,1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,People who prefer mid and high-value goods in Philippines,1000,0.04,1300,0.0026530612244898,1507.6923076923001
+Arsenal,Facebook access (mobile): iPhone XS,36000,1.44,350000,0.71428571428571,201.6
+Arsenal,Facebook access (mobile): iPhone XS Max,26000,1.04,280000,0.57142857142857,182.0
+Arsenal,Facebook access (mobile): iPhone XR,110000,4.4,1000000,2.0408163265306003,215.6
+Arsenal,Likely engagement with US political content (liberal),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Likely engagement with US political content (moderate),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Likely engagement with US political content (conservative),1000,0.04,1000,0.0020408163265306,1960.0
+Arsenal,Ramadan month (high content engagement),14000,0.56,140000,0.28571428571429,196.0
+Arsenal,Ramadan month (medium content engagement),13000,0.52,170000,0.3469387755102,149.88235294118
+Arsenal,People who have visited Facebook Gaming,62000,2.48,730000,1.4897959183673,166.46575342466002
+Arsenal,Friends of Soccer fans,430000,17.2,16000000,32.65306122449,52.675
+Arsenal,Friends of those who live abroad,1100000,44.0,16000000,32.65306122449,134.75
+Arsenal,Friends of people who have engaged with Ramadan,800000,32.0,10000000,20.408163265306,156.8
+Arsenal,People who have watched a Rewarded Video in the last 30 days,55000,2.2,920000,1.8775510204082,117.17391304348
