@@ -1,0 +1,9 @@
+Club,interestName,assetSize,assetPercentage,benchmarkSize,benchmarkPercentage,affinity
+Chelsea,Parents (All),290000,9.0625,6500000,13.265306122449,68.31730769230799
+Chelsea,New Parents (0-12 months),11000,0.34375,180000,0.36734693877551006,93.57638888888901
+Chelsea,Parents with toddlers (01-02 years),7400,0.23125,120000,0.24489795918367002,94.427083333333
+Chelsea,Parents with preschoolers (03-05 years),9000,0.28125,160000,0.32653061224490004,86.1328125
+Chelsea,Parents with early school-age children (06-08 years),11000,0.34375,200000,0.40816326530612,84.21875
+Chelsea,Parents with teenagers (13-17 years),30000,0.9375,580000,1.1836734693878002,79.202586206897
+Chelsea,Parents with adult children (18-26 years),93000,2.90625,2100000,4.2857142857143,67.8125
+Chelsea,Parents with preteens (09-12 years),15000,0.46875,270000,0.55102040816327,85.069444444444

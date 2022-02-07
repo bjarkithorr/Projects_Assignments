@@ -1,0 +1,9 @@
+Club,interestName,assetSize,assetPercentage,benchmarkSize,benchmarkPercentage,affinity
+Man Utd,Parents (All),490000,12.25,6500000,13.265306122449,92.34615384615401
+Man Utd,New Parents (0-12 months),11000,0.275,180000,0.36734693877551006,74.861111111111
+Man Utd,Parents with toddlers (01-02 years),6800,0.17,120000,0.24489795918367002,69.416666666667
+Man Utd,Parents with preschoolers (03-05 years),9300,0.2325,160000,0.32653061224490004,71.203125
+Man Utd,Parents with early school-age children (06-08 years),14000,0.35,200000,0.40816326530612,85.75
+Man Utd,Parents with teenagers (13-17 years),50000,1.25,580000,1.1836734693878002,105.60344827586
+Man Utd,Parents with adult children (18-26 years),160000,4.0,2100000,4.2857142857143,93.333333333333
+Man Utd,Parents with preteens (09-12 years),20000,0.5,270000,0.55102040816327,90.740740740741
